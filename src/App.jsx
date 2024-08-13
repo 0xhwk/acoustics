@@ -31,7 +31,7 @@ function App() {
   const [wallMaterial, setWallMaterial] = useState(defaultMaterialArray);
   const [ceilingMaterial, setCeilingMaterial] = useState(defaultMaterial);
   const [floorMaterial, setFloorMaterial] = useState(defaultMaterial);
-  const [sdi, setSdi] = useState(0.5);
+  const [sdi, setSdi] = useState("Mid Diffusion SDI = 0.5");
   //TOP VIEW STATE
   const containerRef = useRef(null);
   const [containerWidth, setContainerWidth] = useState(0);
@@ -161,6 +161,7 @@ function App() {
         floorMaterial={floorMaterial}
         ceilingMaterial={ceilingMaterial}
         ceilingHeight={ceilingHeight}
+        sdi={sdi}
       />
     </div>
   );

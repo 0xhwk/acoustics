@@ -2,7 +2,7 @@ import { calculateDistanceBetween2Points } from "./disanceBetween2Points";
 
 export const calculateIntensityRatio = (sourcePoint, listenerPoint) => {
   const distance = calculateDistanceBetween2Points(sourcePoint, listenerPoint);
-  const unitPower = 1; //watts
+
   const unitDistance = 1; //meters
   const I0 = 1 * 10 ** -12;
 

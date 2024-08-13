@@ -15,6 +15,7 @@ export const ResultTable = ({
   floorMaterial,
   ceilingMaterial,
   ceilingHeight,
+  sdi,
 }) => {
   const [results, setResults] = useState(undefined);
   const calculate = () => {
@@ -134,7 +135,7 @@ export const ResultTable = ({
           label: "Earliest Reflection Time (s)",
           data: earliest.earliestReflectionTime,
         },
-        { label: "ITD (s)", data: earliest.initialTimeDiff },
+        { label: "ITD (s)", data: earliest.initialTimeDiff.toString() },
         {
           label: "Earliest Reflection Distance (m)",
           data: earliest.reflectionDistance,
@@ -188,7 +189,7 @@ export const ResultTable = ({
         Calculate
       </button>
       <div>{prepareTable()}</div>
-      {/* <Report results={results} /> */}
+      <Report results={results} sdi={sdi} />
     </div>
   );
 };
