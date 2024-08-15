@@ -51,7 +51,14 @@ export const Report = ({ results, sdi }) => {
     if (value <= low) return "low";
     if (value >= high) return "high";
   };
-
+  console.log(
+    (revtime.RT60["500"] +
+      revtime.RT60["250"] +
+      revtime.RT60["1000"] +
+      revtime.RT60["4000"]) /
+      4 /
+      revtime.volume
+  );
   const metrics = [
     {
       label: "Liveness",
@@ -78,7 +85,7 @@ export const Report = ({ results, sdi }) => {
     },
     {
       label: "Warmth",
-      data: (revtime.RT60["125"] + revtime.RT60["125"]) / 2,
+      data: (revtime.RT60["125"] + revtime.RT60["250"]) / 2,
       text: {
         low: "Warmth is low. Lower frequencies might sound dry or may be heard lower than expected.",
         high: "Warmth might be too high. Lower frequencies(<500hz) might reverberate too much.",
@@ -88,16 +95,22 @@ export const Report = ({ results, sdi }) => {
     },
     {
       label: "Loudness of Direct Sound",
-      data: revtime.aAvg,
+      data: earliest.directDistance,
       text: {
-        low: "Loudness of direct sound is low. Listener-source distance is too long. Source might sound too quiet in listener position.",
-        high: "Loudness of direct sound is high. Listener might be overwhelmed by sound level.",
+        low: "Loudness of direct sound is high. Listener might be overwhelmed by sound level.",
+        high: " Loudness of direct sound is low. Listener-source distance is too long. Source might sound too quiet in listener position.",
         ideal: "Loudness of direct sound is ideal.",
       },
     },
     {
       label: "Loudness of Reverberant Sound",
-      data: Gvals.GList,
+      data:
+        (revtime.RT60["500"] +
+          revtime.RT60["250"] +
+          revtime.RT60["1000"] +
+          revtime.RT60["4000"]) /
+        4 /
+        revtime.volume,
       text: {
         low: "Loudness of reverberant sound is low. Room might sound dry/dead. Sense of envelopment and warmth might be low. Clarity and definition might be low.  ",
         high: "Loudness of reverberant sound is high. Room Might sound too wet. Clarity and definition might be low.",
