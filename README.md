@@ -1,5 +1,8 @@
 # Acoustics Principles
 
+https://acoustics.vercel.app/
+https://github.com/0xhwk/acoustics
+
 This app calculates commonly used acoustic parameters (parameters that can be calculated or approximated without ray tracing) for a closed hall.
 
 ## Usage
